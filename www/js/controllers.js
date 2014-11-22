@@ -1,8 +1,19 @@
+/* Yelp API
+Consumer Key	tLivdqcpKOiCT6NnCnN8dA
+Consumer Secret	a-BuyovQAMqs8YVz8lE5Vk58cEo
+Token	u0qX_MFsNqpWlv9efftSmc1b0mChZoQm
+Token Secret	kVfjZdl6goTOAawxwgWTt_5v6tg
+*/
+
 angular.module('starter.controllers', [])
     .controller('TodoListController', function ($scope, $ionicModal) {
 	    
 	    //define an empty array for the list 
 		$scope.todoItems = [
+			{
+				task: 'Keep Working',
+				done: 'false'
+			}
 		];
 		
 		//modal window code

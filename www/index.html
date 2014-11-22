@@ -19,34 +19,63 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
   </head>
   
   <body class="platform-ios" ng-app="starter" ng-controller="TodoListController">
+	  
     <ion-pane>
-<!--     header section -->
-      <ion-header-bar align-title="left" class="bar-positive">
-        <h1 class="title">Todo List App</h1>
-        <div class="buttons">
-			<button class="button" ng-click="openModal()">Add</button>
-  		</div>
-      </ion-header-bar>
-<!--     end header section -->
-<!--       main content  -->
-      <ion-content>
-      	<ion-list>
-	        <ion-item ng-repeat="item in todoItems">
-	       		{{item.task}}
-	        </ion-item>
-		</ion-list>
-      </ion-content>
-<!--      end main content  -->
-<!--      section footer  -->
-      <ion-footer-bar align-title="center" class="bar-positive">
-  		<h1 class="title">Copyright &copy;</h1>
-  	</ion-footer-bar>
-<!--     end section footer  -->
+	<ion-tabs class="tabs-positive tabs-icon-only">
+	
+	  <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+	    <!-- Tab 1 content -->
+	<!--     header section -->
+	      <ion-header-bar align-title="left" class="bar-positive">
+	        <h1 class="title">Todo List App</h1>
+	        <div class="buttons">
+				<button class="button" ng-click="openModal()"><span class="ion-plus-circled"></span> Add</button>
+	  		</div>
+	      </ion-header-bar>
+	<!--     end header section -->
+	<!--       main content  -->
+	      <ion-content>
+	      	<ion-list>
+		        <ion-item ng-repeat="item in todoItems">
+		       		{{item.task}}
+		        </ion-item>
+			</ion-list>
+	      </ion-content>
+	<!--      end main content  -->
+	  </ion-tab>
+	
+	  <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
+	    <!-- Tab 2 content -->
+	      <ion-header-bar align-title="center" class="bar-positive">
+	        <h1 class="title">Search</h1>
+	      </ion-header-bar>
+	<!--       main content  -->
+	      <ion-content>
+				<div class="list list-inset">
+				  <label class="item item-input">
+				    <i class="icon ion-search placeholder-icon"></i>
+				    <input type="text" placeholder="Search">
+				  </label>
+				</div>	      
+			</ion-content>
+	<!--      end main content  -->
+	      
+	  </ion-tab>
+	
+	  <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
+	    <!-- Tab 3 content -->
+	      <ion-header-bar align-title="center" class="bar-positive">
+	        <h1 class="title">Tab 3</h1>
+	      </ion-header-bar>
+	  </ion-tab>
+	
+	</ion-tabs>
     </ion-pane>
 <script id="modal.html" type="text/ng-template">
 <div class="modal">
