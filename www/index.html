@@ -53,16 +53,23 @@
 	  <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
 	    <!-- Tab 2 content -->
 	      <ion-header-bar align-title="center" class="bar-positive">
-	        <h1 class="title">Search</h1>
+	        <h1 class="title">Instagram Search</h1>
 	      </ion-header-bar>
 	<!--       main content  -->
 	      <ion-content>
 				<div class="list list-inset">
 				  <label class="item item-input">
 				    <i class="icon ion-search placeholder-icon"></i>
-				    <input type="text" placeholder="Search">
+				    <input type="text" id="instagram-search" ng-keyup="searchInstagram($event)" placeholder="Search">
 				  </label>
-				</div>	      
+				</div>
+				<div class="list" >
+				    <a class="item item-avatar" href="#" ng-repeat="user in instagramUsers">
+				      <img ng-src="{{user.imgsrc}}">
+				      <h2>{{user.name}}</h2>
+				      <p>{{user.description}}</p>
+				    </a>
+				</div>
 			</ion-content>
 	<!--      end main content  -->
 	      
@@ -72,7 +79,40 @@
 	    <!-- Tab 3 content -->
 	      <ion-header-bar align-title="center" class="bar-positive">
 	        <h1 class="title">Tab 3</h1>
-	      </ion-header-bar>
+	     </ion-header-bar>
+	     <ion-content>
+	     <ul class="list">
+
+		 	<li class="item item-toggle">
+			 	Auto-Reload
+			 	<label class="toggle toggle-assertive">
+			 	<input type="checkbox">
+			 	<div class="track">
+			 	<div class="handle"></div>
+	       		</div>
+		   		</label>
+	   		</li>
+		 	<li class="item item-toggle">
+			 	AJAX
+			 	<label class="toggle toggle-assertive">
+			 	<input type="checkbox">
+			 	<div class="track">
+			 	<div class="handle"></div>
+	       		</div>
+		   		</label>
+	   		</li>
+		 	<li class="item item-toggle">
+			 	Notifications
+			 	<label class="toggle toggle-assertive">
+			 	<input type="checkbox">
+			 	<div class="track">
+			 	<div class="handle"></div>
+	       		</div>
+		   		</label>
+	   		</li>
+		</ul>
+		
+		</ion-content>
 	  </ion-tab>
 	
 	</ion-tabs>
