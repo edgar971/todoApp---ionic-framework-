@@ -14,7 +14,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-<!--   http://ngcordova.com/docs/   -->
+    
 	<script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -33,13 +33,12 @@
 	  <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
 	    <!-- Tab 1 content -->
 	<!--     header section -->
-	      <ion-header-bar align-title="left" class="bar-positive">
+	      <ion-header-bar align-title="center" class="bar-positive">
 		  	<div class="buttons">
 		  		<button class="button button-icon icon ion-ios7-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
 		  			<h1 class="title">Todo List App</h1>
-		  			<button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
-		  			Reorder
-		  			</button>
+			   	<button class="button button-icon icon ion-ios7-plus-outline" ng-click="openModal()"></button>
+		  			
       		</div>	        
 <!--
       		<h1 class="title">Todo List App</h1>
@@ -58,6 +57,9 @@
 			  </ion-refresher>
 	      	<ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 		        <ion-item ng-repeat="item in todoItems" item="item" href="#/item/{{item.id}}">
+					<ion-delete-button class="ion-minus-circled"  ng-click="onItemDelete(item)">
+					</ion-delete-button>
+
 		       		{{item.task}}
 		        </ion-item>
 			</ion-list>

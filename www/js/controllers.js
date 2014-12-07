@@ -69,8 +69,9 @@ angular.module('starter.controllers', [])
 			}
 		}
 		
-		
-		
+		$scope.onItemDelete = function(item) {
+		  $scope.todoItems.splice($scope.todoItems.indexOf(item), 1);
+		};		
 		//function to open modal 
 		$scope.openModal = function () {
 		  $scope.modal.show();
