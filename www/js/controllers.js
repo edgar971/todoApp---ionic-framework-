@@ -6,7 +6,7 @@ Token Secret	kVfjZdl6goTOAawxwgWTt_5v6tg
 */
 
 angular.module('starter.controllers', [])
-    .controller('TodoListController', function ($scope, $ionicModal, $ionicLoading) {
+    .controller('TodoListController', function ($scope, $ionicModal) {
 	    
 	    //define an empty array for the list 
 		$scope.todoItems = [
@@ -15,8 +15,6 @@ angular.module('starter.controllers', [])
 				done: 'false'
 			}
 		];
-		
-		$scope.instagramUsers = [];
 		
 		//modal window code
 		//init the modal window
@@ -28,46 +26,8 @@ angular.module('starter.controllers', [])
 		 	//console.log(modal);
 		});
 		
-		$scope.showLoader = function() {
-		    $ionicLoading.show({
-		      template: 'Loading...'
-		    });
-		  };
-		$scope.hideLoader = function(){
-		    $ionicLoading.hide();
-		};		
-		$scope.searchInstagram = function(event) {
-			value = event.target.value;
-			if(value.length > 3) {
-				$scope.showLoader();
-				console.log('Searching...');
-				console.log(value);
-				queryString = "https://api.instagram.com/v1/users/search?q=" + value +"&access_token=359438134.e80aed7.a2363c18a8ae4200b1770b3f942bffed";
-				$.ajax({
-					url: queryString,
-					type: "GET",
-					//external server request must use jsonp 
-					dataType: "jsonp",
-					global: true,
-					success: function(results) {
-						$scope.instagramUsers = [];
-						console.log(results.data);
-						$.each(results.data, function(index, user){
-							console.log(user);
-							$scope.instagramUsers.push({
-								name: user.full_name,
-								description: user.bio,
-								imgsrc: user.profile_picture
-							});
-						});
-						$scope.hideLoader();
-					}
-				});
-
-			} else {
-				$scope.instagramUsers = [];
-			}
-		}
+		
+		
 		
 		
 		
